@@ -1,7 +1,8 @@
 # Shoppe
+original from https://github.com/tryshoppe/shoppe.git
 
 Shoppe is an Rails-based e-commerce platform which allows you to easily introduce a
-catalogue-based store into your Rails 4 applications. 
+catalogue-based store into your Rails 3 applications. 
 
 ![GemVersion](https://badge.fury.io/rb/shoppe.png)
 [![Code Climate](https://codeclimate.com/github/tryshoppe/core/badges/gpa.svg)](https://codeclimate.com/github/tryshoppe/core)
