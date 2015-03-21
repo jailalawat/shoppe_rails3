@@ -19,7 +19,7 @@ module Shoppe
     
     # All countries ordered by their name asending
     scope :ordered, -> { order(:name => :asc) }
-    
+    attr_accessible :name, :code2, :code3, :continent, :tld, :currency, :eu_member
     # Validations
     validates :name, :presence => true
     
