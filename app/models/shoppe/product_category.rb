@@ -4,7 +4,7 @@ module Shoppe
     self.table_name = 'shoppe_product_categories'
 
     # Categories have an image attachment
-    attachment :image
+    # attachment :image
 
     # All products within this category
     has_many :products, :dependent => :restrict, :class_name => 'Shoppe::Product'
@@ -16,6 +16,8 @@ module Shoppe
     # All categories ordered by their name ascending
     scope :ordered, -> { order(:name) }
     attr_accessible :name
+    attr_accessible :default_image_file
+    attr_accessor :default_image_file
     # Set the permalink on callback
     before_validation { self.permalink = self.name.parameterize if self.permalink.blank? && self.name.is_a?(String) }
 

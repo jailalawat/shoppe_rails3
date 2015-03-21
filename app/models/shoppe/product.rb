@@ -10,8 +10,8 @@ module Shoppe
     require_dependency 'shoppe/product/variants'
 
     # Products have a default_image and a data_sheet
-    attachment :default_image
-    attachment :data_sheet
+    # attachment :default_image
+    # attachment :data_sheet
 
     # The product's category
     #
@@ -32,8 +32,8 @@ module Shoppe
     # Stock level adjustments for this product
     has_many :stock_level_adjustments, :dependent => :destroy, :class_name => 'Shoppe::StockLevelAdjustment', :as => :item
     attr_accessible :name, :sku, :description, :short_description, :weight, :price, :cost_price, :tax_rate, :featured,:default
-    attr_accessible :default_image_file
-    attr_accessor :default_image_file
+    attr_accessible :default_image_file,:data_sheet_file
+    attr_accessor :default_image_file,:data_sheet_file
     # Validations
     with_options :if => Proc.new { |p| p.parent.nil? } do |product|
       product.validates :product_category_id, :presence => true
