@@ -24,14 +24,16 @@ module Shoppe
     belongs_to :tax_rate, :class_name => "Shoppe::TaxRate"
 
     # Ordered items which are associated with this product
-    has_many :order_items, :dependent => :restrict_with_exception, :class_name => 'Shoppe::OrderItem', :as => :ordered_item
+    has_many :order_items, :dependent => :restrict, :class_name => 'Shoppe::OrderItem', :as => :ordered_item
 
     # Orders which have ordered this product
     has_many :orders, :through => :order_items, :class_name => 'Shoppe::Order'
 
     # Stock level adjustments for this product
     has_many :stock_level_adjustments, :dependent => :destroy, :class_name => 'Shoppe::StockLevelAdjustment', :as => :item
-
+    attr_accessible :name, :sku, :description, :short_description, :weight, :price, :cost_price, :tax_rate, :featured,:default
+    attr_accessible :default_image_file
+    attr_accessor :default_image_file
     # Validations
     with_options :if => Proc.new { |p| p.parent.nil? } do |product|
       product.validates :product_category_id, :presence => true

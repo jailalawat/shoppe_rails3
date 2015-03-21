@@ -18,7 +18,11 @@ module Shoppe
 
     # All products which are part of this order (accessed through the items)
     has_many :products, :through => :order_items, :class_name => 'Shoppe::Product', :source => :ordered_item, :source_type => 'Shoppe::Product'
-
+    attr_accessible :token,:first_name,:last_name,:company,:billing_address1,:billing_address2,:billing_address3,:billing_address4,
+                    :email_address,:phone_number,:status,:received_at,:accepted_at,:shipped_at,:created_at,:updated_at,:delivery_service_id,
+                    :delivery_price,:delivery_cost_price,:delivery_tax_rate,:delivery_tax_amount,:accepted_by,:shipped_by,:consignment_number,
+                    :rejected_at,:rejected_by,:ip_address,:notes,:separate_delivery_address,:delivery_name,:delivery_address1,:delivery_address2,
+                    :delivery_address3,:delivery_address4,:delivery_postcode,:delivery_country_id,:amount_paid,:exported,:invoice_number
     # Validations
     validates :token, :presence => true
     with_options :if => Proc.new { |o| !o.building? } do |order|

@@ -8,14 +8,14 @@ module Shoppe
     validates :courier, :presence => true
   
     # Orders which are assigned to this delivery service
-    has_many :orders, :dependent => :restrict_with_exception, :class_name => 'Shoppe::Order'
+    has_many :orders, :dependent => :restrict, :class_name => 'Shoppe::Order'
     
     # Prices for the different levels of service within this delivery service
     has_many :delivery_service_prices, :dependent => :destroy, :class_name => 'Shoppe::DeliveryServicePrice'
   
     # All active delivery services
     scope :active, -> { where(:active => true)}
-    
+    attr_accessible :name, :code, :courier, :tracking_url
     # Returns a tracking URL for the passed order
     #
     # @param order [Shoppe::Order]

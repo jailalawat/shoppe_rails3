@@ -18,7 +18,7 @@ module Shoppe
 
     # Payments can have associated properties
     key_value_store :properties
-
+    attr_accessible :order_id,:amount,:reference,:method,:confirmed,:refundable,:amount_refunded,:parent_payment_id,:exported,:created_at,:updated_at
     # Callbacks
     after_create :cache_amount_paid
     after_destroy :cache_amount_paid

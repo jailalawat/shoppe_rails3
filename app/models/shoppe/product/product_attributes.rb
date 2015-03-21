@@ -2,7 +2,7 @@ module Shoppe
   class Product < ActiveRecord::Base
   
     # Product attributes for this product
-    has_many :product_attributes, -> { order(:position) }, :class_name => 'Shoppe::ProductAttribute'
+    has_many :product_attributes, :class_name => 'Shoppe::ProductAttribute'
   
     # Used for setting an array of product attributes which will be updated. Usually
     # received from a web browser.

@@ -7,7 +7,7 @@ module Shoppe
     attachment :image
 
     # All products within this category
-    has_many :products, :dependent => :restrict_with_exception, :class_name => 'Shoppe::Product'
+    has_many :products, :dependent => :restrict, :class_name => 'Shoppe::Product'
 
     # Validations
     validates :name, :presence => true
@@ -15,7 +15,7 @@ module Shoppe
 
     # All categories ordered by their name ascending
     scope :ordered, -> { order(:name) }
-
+    attr_accessible :name
     # Set the permalink on callback
     before_validation { self.permalink = self.name.parameterize if self.permalink.blank? && self.name.is_a?(String) }
 

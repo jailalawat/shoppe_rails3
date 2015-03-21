@@ -26,6 +26,6 @@ module Shoppe
     #
     # @param weight [BigDecimal] the weight of the order
     scope :for_weight, -> weight { where("min_weight <= ? AND max_weight >= ?", weight, weight) }
-  
+    attr_accessible :code, :min_weight, :max_weight, :price, :cost_price, :tax_rate 
   end
 end

@@ -17,7 +17,7 @@ module Shoppe
     # Validations
     validates :quantity, :numericality => true
     validates :ordered_item, :presence => true
-
+    attr_accessible :order_id,:ordered_item_id,:ordered_item_type,:quantity,:unit_price,:unit_cost_price,:tax_amount,:tax_rate,:weight,:created_at,:updated_at
     validate do
       unless in_stock?
         errors.add :quantity, :too_high_quantity
