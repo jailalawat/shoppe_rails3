@@ -32,7 +32,7 @@ Gem::Specification.new do |s|
   s.add_development_dependency "sass-rails", "~> 4.0"
   s.add_development_dependency "sqlite3", "~> 1.3"
   s.add_development_dependency "mysql2", "~> 0.3"
-  s.add_development_dependency 'yard', "~> 0"
+  s.add_development_dependency "yard", "~> 0.9.11" 
   s.add_development_dependency "yard-activerecord", "~> 0"
   s.add_development_dependency "markdown", "~> 1.0"
   s.add_development_dependency "factory_girl_rails", '~> 4.0'
